@@ -1,79 +1,20 @@
-<?php 
-$this->Html->LoadCss('modulos/assine');
-$linkanalise = $this->Html->getLink('pagamento/produto/show/'.COD_ANALISE);
-$linkgerenciador = $this->Html->getLink('index/produtomais/index');
-?>
-Lucre mais no mercado financeiro utilizando nossas ferramentas:
-<div class="span12">
-<div class="container">
-    
-    
-    
-    <div class="pricing-table">
-        <div class="pricing-table-header">
-            <h1>Análise de investimentos</h1>
-        </div>
-        
-        <div class="pricing-table-content">
-            <ul>
-                <li>Histórico de Balanços</li>
-                <li>Histórico de Indicadores</li>
-                <li>Gráficos Customizados</li>
-                <li>Comparativo de Empresas</li>
-                <li>Histórico de Cotações</li>
-                <li>Histórico de Dividendos e JCP</li>
-                <li>Informações cadastrais das empresas</li>
-            </ul>
-        </div>
-        
-        <div class="pricing-table-footer">
-            <h2><sup>R$</sup>99,90</h2>
-            <p>por ano</p>
-            <a class="btn btn-large btn-success span12" href="<?php echo $linkanalise; ?>" target = "_blank">Comprar Via Pagseguro</a>
-        </div>
-    </div>
-    
-    
-    
-    
-    <div class="pricing-table">
-        <div class="pricing-table-header">
-            <h1>Gerenciador Pré-Venda Limitada</h1>
-        </div>
-        
-        <div class="pricing-table-content">
-            <ul>
-                <li>Posição consolidada em carteira</li>
-                <li>Lucros/prejuízos por operação</li>
-                <li>Posição consolidada em carteira</li>
-                <li>Evolução do patrimônio</li>
-                <li>Cálculo automatizado de impostos</li>
-                <li>Geração de DARF em um clique</li>
-                <li>Opção de upload da nota de corretagem para adicionar novas operações.</li>
-            </ul>
-        </div>
-        
-        <div class="pricing-table-footer">
-            <h2><sup>R$</sup>99,90</h2>
-            <p>fixo</p>
-            <a class="btn btn-large btn-success span6" href="https://www.hotmart.net.br/order/checkout/pay.html?order=P1605223P&cid=236803" target = "_blank">Comprar Agora</a>
-            <a class="btn btn-large btn-info span6" href='<?php echo $linkgerenciador;?>' target = "_blank">Ver Detalhes</a>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
 <?php
+$this->Html->LoadCss('modulos/assine');
+$linkanalise = $this->Html->getLink('pagamento/produto/show/' . COD_ANALISE);
+$this->Html->LoadBowerComponent();
+$this->Html->LoadAngular(array('angular/angular.min','angular-route/angular-route.min'));
+$this->Html->LoadJs('produto/views/js/router.js');
+?>
 
-//if(isset($title)){echo "<h1>$title</h1>";}
-//if(!empty($item)){
-//    $this->LoadComponent($component, "comp");
-//    $this->comp->removeListAction($name = 'Veja Mais');
-//    $this->comp->addListAction($name = 'Assinar via Pagseguro',$link = 'show');
-//    $this->comp->$comp_action($component, $item);
-//}else{
-//    echo "<h1>Nenhum conteúdo encontrado</h1>";
-//    echo "<p>Não existe nenhum conteúdo relacionado nesta seção</p>";
-//}
+<ul class="dropdown" id="menu-dropdown">
+        <li class="color1"> <a class="action_perm color1">Selecionar o produto</a> 
+            <ul style="visibility: hidden; display: block;">
+                <li class="color2"> <a href="#gerenciadordeinvestimentos" class="action_perm color2">Gerenciador de Investimentos</a></li>
+                <li class="color2"> <a href="#analisedeinvestimentos" class="action_perm color2">Sistema para Análise de Ações</a></li>
+            </ul> 
+        </li>
+    </ul>
+
+<div ng-app="pag" ng-cloak="">
+    <div ng-view></div>
+</div>   

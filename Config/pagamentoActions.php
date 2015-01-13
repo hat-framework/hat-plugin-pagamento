@@ -24,7 +24,7 @@ class pagamentoActions extends Actions{
         ),
         
         "pagamento_pagamento_assinatura" => array(
-            "nome"      => "assinatura",
+            "nome"      => "pagamento_assinatura",
             "label"     => "Visualizar Página de assinatura",
             "descricao" => "Permite visualizar página de assinatura",
             "default"   => "s",
@@ -41,7 +41,7 @@ class pagamentoActions extends Actions{
         
          "pagamento/index/redirecionar" => array(
             "label" => "Página Inicial", "publico" => "s", "default_yes" => "s","default_no" => "n",
-            "permission" => "assinatura",
+            "permission" => "pagamento_assinatura",
             "menu" => array()
         ),
         
@@ -79,13 +79,13 @@ class pagamentoActions extends Actions{
         
          'pagamento/operacao/compraFinalizada' => array(
             'label' => 'Excluir operacao', 'publico' => 's', 'default_yes' => 's',"default_no" => "n",
-            'permission' => 'assinatura',
+            'permission' => 'pagamento_assinatura',
             'menu' => array('Voltar para Página Principal' => 'empresa/index/index')
         ),
 
         'pagamento/produto/index' => array(
             'label' => 'Assine', 'publico' => 's', 'default_yes' => 's',"default_no" => "n",
-            'permission' => 'assinatura',
+            'permission' => 'pagamento_assinatura',
             'menu' => array('pagamento/produto/formulario'),
              'breadscrumb' => array('pagamento/index/redirecionar', 'pagamento/produto/index')
         ),
@@ -98,7 +98,7 @@ class pagamentoActions extends Actions{
         
         'pagamento/produto/show' => array(
             'label' => 'Visualizar produto', 'publico' => 'n', 'default_yes' => 's',"default_no" => "n",
-            'permission' => 'assinatura', 'needcod' => true,
+            'permission' => 'pagamento_assinatura', 'needcod' => true,
             'menu' => array('pagamento/produto/index', 'Ações' => array('Editar' => 'pagamento/produto/edit', 'Excluir' => 'pagamento/produto/apagar'))
         ),
         
@@ -118,4 +118,3 @@ class pagamentoActions extends Actions{
     );
     
 }
-?>
